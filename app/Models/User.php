@@ -6,10 +6,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\Profile;
-use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -48,22 +44,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
-
-     /**
-     * Get the roles associated with the user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToMany(Role::class, 'role_users')->withTimestamps();
-    }
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class);
-    }
+    
 }
