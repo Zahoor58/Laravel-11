@@ -52,10 +52,10 @@ Route::get('/jobs', function(){
     // return "About Page";
     // return a json
     // return ['foo'=>'bar'];
-    // return a view 
+    // return a view
+    $jobs=Job::with('employer')->get(); 
     return view('jobs',[
-        'jobs'=>Job::all()
-
+        'jobs'=>$jobs
         
     
 ]);
