@@ -1,21 +1,26 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Employer;
 use App\Models\Tag;
-class Job Extends Model{
-    use HasFactory;
-    protected $table ="job_listings";
-    protected $fillable=['title','salary'];
 
-    public function employer(){
+class Job extends Model
+{
+    use HasFactory;
+    protected $table = "job_listings";
+    protected $fillable = ['title', 'salary', 'employer_id'];
+
+    public function employer()
+    {
         return $this->belongsTo(Employer::class);
     }
 
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(Tag::Class, foreignPivotKey: "Job_listing_id");
     }
 }
@@ -51,4 +56,3 @@ class Job Extends Model{
 //         }
 //     }
 // }
-
