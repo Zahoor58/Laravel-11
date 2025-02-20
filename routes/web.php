@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SessionConttroller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Models\Job;
@@ -31,3 +33,10 @@ Route::resource('jobs', JobController::class);
 // Route::resource('jobs', JobController::class,[
 //     'only' => ['show', 'show', 'edit', 'update']
 // ]);
+
+Route::get('register',[RegisteredUserController::class,'create'])->name('register');
+Route::post('register',[RegisteredUserController::class,'store'])->name('register.store');
+
+
+Route::get('login',[SessionConttroller::class,'create'])->name('login');
+Route::post('login',[SessionConttroller::class,'store'])->name('login.store');

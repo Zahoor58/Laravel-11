@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Zahoor',
             'last_name' => 'Shad',
             'email' => 'zahoorshad@gmail.com',
+            'country_id'=>1
         ]);
-        
+
         $this->call(JobSeeder::class);
 
     }
